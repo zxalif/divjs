@@ -52,7 +52,7 @@ $('#example').printElement({
 
 ### loading internal css
 
-Loading page `css`. 
+Loading page `css`.
 `css:` options are 3 types.
  1. `extend` to load all the `css` (links and styles) of `this` page.
  2. `style` to load only `css` in `style` tag.
