@@ -1,10 +1,10 @@
 (function($){
-	$.fn.printWindow = function(options){
+	$.fn.printElement = function(options){
 		var settings = $.extend({
 			title	: jQuery('title').text(), // default title for printer
-			css		: 'extend', // get all css from current page [extend: all, style only styles, link only meta links]
-			ecss	: null,
-			lcss	: [], // list of external css that will goes
+			css		: 'extend', // get all css from current page [extend: all, style: only styles, link: only meta links]
+			ecss	: null, // extra css .eample{background-color: red;}
+			lcss	: [], // list of external css that will goes ['test.css', 'local/example.css']
 			keepHide: [], // hide those elements during print window in a system
 		}, options);
 		
@@ -37,8 +37,9 @@
 			head.append($(document.createElement('style')).append($('style').clone().html()));
 		}
 		
+		// external css for media print
 		if(settings.ecss != null){
-			//pass
+			head.append($(document.createElement('style')).html(settings.ecss));
 		}
 		
 		
@@ -58,10 +59,10 @@
 		
 		// print pdf area 
 		// if there is multiple elements has in the selector then it will go for the first index only
-		var fn_window = document.open('', settings.title, 'scrollbars=yes');
+		var fn_window = document.open('', settings.title, 'width='+$(document).width()+',height=' + $(document).width() + '');
 		fn_window.document.write(html.clone().html()); // write the html data into document 
 		
-		setTimeout(function(){fn_window.print()}, 100); // print the functional window
+		setTimeout(function(){fn_window.print();fn_window.close();}, 250); // print the functional window
 		
 		return true;
 	}
