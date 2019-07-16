@@ -35,12 +35,13 @@ __example__
 $('#example').printElement();
 ```
 
-### Current `divjs` support five(5) options
+### Current `divjs` support six(6) options
  - title: The title of the print document.
  - css: Loading internal `css`.
  - ecss: Loading customize sytles for print.
  - lcss: List of local `css` to be add.
  - keepHide: Hide this selection in document page (no need to print this).
+ - wrapper: Wrap html element within it.
 
 ### change title
 
