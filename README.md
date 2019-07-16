@@ -6,6 +6,7 @@ A jQuery plugin for printing specific selection/element with customization.
 - Load body `CSS` with extra `CSS`.
 - Hide specific element during print.
 - Customize document page.
+- Wrap element with specific HTML
 
 ## To Do
  - Override `HTML` attribute (replace).
@@ -109,6 +110,62 @@ $('#example').printElement({
 	ecss: '.active{background-color: red;} #counter{background-color: #000; color: #fff;}',
 	lcss: ['example.css', '/local/css/print.css']
 });
+```
+
+### Wraping with HTML
+To `wrap` `element` with specific element just select the element with jQuery or use it as `string`.
+
+# Wraping with jQuery selector
+__Example__
+
+```html
+
+<p id="contacts">All the contacts are going to be print.<p>
+<button id="printer">Print</button>
+
+<div>
+	<h1>Somethig goes before the printer element</h1>
+	<div id="wrapper"></div>
+	<p>Footer after the wrapper</p>
+</div>
+
+```
+
+```JavaScript
+
+jQuery('#printer').on('click', function(event){
+  event.preventDefault();
+  jQuery('#contacts').printElement({
+    wrapper: {
+      wrapper: $('#selector'), // the element that going to be wrap `#contacts`
+      selector: '#wrapper', // inside the `#wrapper` id it will wrap
+    }
+  });
+});
+
+```
+
+# Wraping with html as string
+__Example__
+
+```html
+
+<p id="contacts">All the contacts are going to be print.<p>
+<button id="printer">Print</button>
+```
+
+```JavaScript
+
+jQuery('#printer').on('click', function(event){
+  event.preventDefault();
+  jQuery('#contacts').printElement({
+    wrapper: {
+      wrapper: '<div><h1>Somethig goes before the printer element</h1><div id="wrapper"></div><p>Footer after the wrapper</p></div>', // the element that going to be wrap `#contacts`
+      selector: '#wrapper', // inside the `#wrapper` id it will wrap
+    }
+  });
+});
+
 ```
 
 ## Author
