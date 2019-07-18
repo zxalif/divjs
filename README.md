@@ -169,6 +169,10 @@ jQuery('#printer').on('click', function(event){
 
 ```
 
+### Output
+
+![image](https://i.ibb.co/0DgQzj0/Screenshot-from-2019-07-16-22-59-37.png)
+
 ## Author
 
  [Alif Jahan](https://github.com/zxalif/)
