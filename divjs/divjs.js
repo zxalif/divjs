@@ -59,7 +59,6 @@
 		}
 
 		html = $(html).append(head).append(body);
-		//console.log(html.html())
 
 		const fn_window = document.open('', settings.title, 'width='+$(document).width()+',height=' + $(document).width() + '');
 		fn_window.document.write(html.clone().html());
